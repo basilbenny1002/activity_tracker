@@ -1,6 +1,4 @@
 
-
-
 # Activity Tracker
 
 ## Overview
@@ -30,15 +28,32 @@ The **Activity Tracker** is a lightweight C program designed to monitor the time
   - Ensure you compile the code with the `-lpsapi` flag to link the required library.
 
 ## Usage
-1. Compile the script using a C compiler:
+
+### Using the Makefile
+1. Open a terminal or command prompt in the directory containing the `activity_tracker.c` file and the `Makefile`.
+2. To compile the program, run:
+   ```bash
+   make
    ```
+3. This will create an executable named `activity_tracker.exe` in the same directory.
+4. To remove the compiled executable, use:
+   ```bash
+   make clean
+   ```
+
+### Manual Compilation
+If you choose not to use the Makefile:
+1. Compile the script using a C compiler:
+   ```bash
    gcc activity_tracker.c -o activity_tracker.exe -lpsapi
    ```
 2. Run the compiled binary:
-   ```
+   ```bash
    activity_tracker.exe
    ```
-3. The program logs activity data to a file named `YYYY-MM-DD.txt` in the same directory as the executable.
+
+### Running the Program
+- When executed, the program logs activity data to a file named `YYYY-MM-DD.txt` in the same directory as the executable.
 
 ## Output File Details
 - Each day's log is stored in a file named after the current date (`YYYY-MM-DD.txt`).
@@ -54,11 +69,8 @@ The **Activity Tracker** is a lightweight C program designed to monitor the time
 - Options for exporting data in additional formats.
 - Configuration options for update intervals and logging preferences.
 
-## Files included
+## Files Included
 1. **`activity_tracker.c`**: The main script file.
 2. **`README.md`**: Project documentation (this file).
 3. **`Makefile`** (optional): Compilation instructions.
-4. **2024-12-31,txt** (optional): A sample `YYYY-MM-DD.txt` file to demonstrate the output format.
-
-
-
+4. **`2024-12-31.txt`** (optional): A sample `YYYY-MM-DD.txt` file to demonstrate the output format.
