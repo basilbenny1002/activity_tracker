@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Activity Tracker
 
 ## Overview
@@ -60,5 +60,5 @@ The **Activity Tracker** is a lightweight C program designed to monitor the time
 3. **`Makefile`** (optional): For easier compilation, if you plan to distribute the project.
 4. **Sample Data File** (optional): A sample `YYYY-MM-DD.txt` file to demonstrate the output format.
 
-Feel free to adapt this based on your needs!
-```
+
+
