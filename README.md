@@ -32,7 +32,7 @@ The **Activity Tracker** is a lightweight C program designed to monitor the time
 ## Usage
 1. Compile the script using a C compiler:
    ```
-   gcc activity_tracker.c -o activity_tracker -lpsapi
+   gcc activity_tracker.c -o activity_tracker.exe -lpsapi
    ```
 2. Run the compiled binary:
    ```
@@ -54,11 +54,11 @@ The **Activity Tracker** is a lightweight C program designed to monitor the time
 - Options for exporting data in additional formats.
 - Configuration options for update intervals and logging preferences.
 
-## Files to Include
+## Files included
 1. **`activity_tracker.c`**: The main script file.
 2. **`README.md`**: Project documentation (this file).
-3. **`Makefile`** (optional): For easier compilation, if you plan to distribute the project.
-4. **Sample Data File** (optional): A sample `YYYY-MM-DD.txt` file to demonstrate the output format.
+3. **`Makefile`** (optional): Compilation instructions.
+4. **2024-12-31,txt** (optional): A sample `YYYY-MM-DD.txt` file to demonstrate the output format.
 
 
 
