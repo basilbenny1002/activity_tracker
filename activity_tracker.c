@@ -38,9 +38,9 @@ void insert_activity(char *path, char *name, int time, char *title) {
     } else {
         // Otherwise, create a new activity
         Activity* newActivity = (Activity*)malloc(sizeof(Activity));
-        strcpy(newActivity->process_path, path);
-        strcpy(newActivity->name, name);
-        strcpy(newActivity->title, title);  
+        strncpy(newActivity->process_path, path, sizeof(newActivity->process_path) - 1);
+        strncpy(newActivity->name, name, sizeof(newActivity->name) - 1);
+        strncpy(newActivity->title, title, sizeof(newActivity->title) - 1);  
         newActivity->time = time;
         newActivity->next = NULL;
 
@@ -62,7 +62,6 @@ BOOL GetProcessNameFromID(DWORD processID, char* processName, DWORD size) {
     hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcessSnap == INVALID_HANDLE_VALUE) {
         return FALSE;
-        CloseHandle(hProcessSnap);
     }
 
     if (Process32First(hProcessSnap, &pe32)) {
@@ -127,6 +126,7 @@ void save_activities_to_file(const char *filename) {
     FILE *fp = fopen(filename, "w+");
     if (fp == NULL) {
         perror("Error opening file");
+        free_activities();
         return;
     }
 
@@ -155,7 +155,7 @@ int load_activities_from_file(const char *filename) {
         char path[256], title[256], name[256];
         int time;
         // Read each line and extract the data for each activity
-        if (sscanf(line, "%255s %255s %d %255[^\n]", path, name, &time, title) == 4) {
+        if (sscanf(line, "%255[^|]|%*3[|]%255[^|]|%*3[|]%d|%*3[|]%255[^\n]", path, name, &time, title) == 4) {
             insert_activity(path, name, time, title);
         } else {
             fprintf(stderr, "Error parsing line: %s", line);
